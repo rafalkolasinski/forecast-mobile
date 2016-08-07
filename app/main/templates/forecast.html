@@ -1,0 +1,18 @@
+<ion-view view-title="Forecast">
+  <ion-content>
+
+  <div ng-if="!connected">
+    <p class="text-center">
+      Sorry!</br>
+      Cannot check forecast as you're not connected to the Internet.
+    </p>
+  </div>
+
+  <div ng-if="connected">
+    <div>
+      {{forecast}}
+    </div>
+  </div>
+
+  </ion-content>
+</ion-view>

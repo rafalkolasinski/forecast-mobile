@@ -34,6 +34,20 @@ angular.module('forecastMobile', [
         connected = true;
       }
 
+      //DEV: MOCK THE CONNECTION
+      connected = false;
+
+      var showConnectionAlert = function() {
+        var connectionAlertPopup = $ionicPopup.alert({
+          title: 'Warning!',
+          template: '<div class="text-center">Your device has no Internet connection.</div>'
+        });
+
+        connectionAlertPopup.then(function(res) {
+          console.log(res);
+        });
+      };
+
       //save connection state to localstorage
       local.setItem('connected', connected).then(function() {
         if(connected === false) {
@@ -41,15 +55,4 @@ angular.module('forecastMobile', [
         }
       });
     });
-
-    var showConnectionAlert = function() {
-        var connectionAlertPopup = $ionicPopup.alert({
-          title: 'Warning!',
-          template: `<div class="text-center">Your device has no Internet connection.</div>`
-        });
-
-        connectionAlertPopup.then(function(res) {
-          // console.log(res);
-        });
-    };
   });

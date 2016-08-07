@@ -21,20 +21,20 @@ angular.module('main', [
         url: '/list',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/list.html',
-            // controller: '<someCtrl> as ctrl'
+            templateUrl: 'main/templates/forecast.html',
+            controller: 'ForecastCtrl as ctrl'
           }
         }
       })
-      .state('main.listDetail', {
-        url: '/list/detail',
-        views: {
-          'pageContent': {
-            templateUrl: 'main/templates/list-detail.html',
-            // controller: '<someCtrl> as ctrl'
-          }
-        }
-      })
+      // .state('main.listDetail', {
+      //   url: '/list/detail',
+      //   views: {
+      //     'pageContent': {
+      //       templateUrl: 'main/templates/list-detail.html',
+      //       // controller: '<someCtrl> as ctrl'
+      //     }
+      //   }
+      // })
       .state('main.search', {
         url: '/search',
         views: {
