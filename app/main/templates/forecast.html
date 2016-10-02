@@ -1,18 +1,76 @@
 <ion-view view-title="Forecast">
-  <ion-content>
+  <ion-content scroll="false">
 
-  <div ng-if="!connected">
-    <p class="text-center">
-      Sorry!</br>
-      Cannot check forecast as you're not connected to the Internet.
-    </p>
-  </div>
-
-  <div ng-if="connected">
-    <div>
-      {{forecast}}
+  <div ng-if="!connected" class="wrapper-full">
+    <div class="wrapper-half">
+      <p class="text-center">
+        Sorry!</br>
+        Cannot check forecast as you're not connected to the Internet.
+      </p>
     </div>
   </div>
 
+  <div ng-if="connected" class="wrapper-full">
+    <div id="forecast-main" class="wrapper-half">
+      <div class="forecast-main-icon">
+        icon
+      </div>
+      <div>
+        <span>{{forecast.name}}, {{forecast.sys.country}}</span>
+      </div>
+      <div>
+        {{forecast.coord.lat}},{{forecast.coord.lon}}
+      </div>
+    </div>
+
+    <div class="wrapper-half">
+      <div id="forecast-details">
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+
+          <ion-slide>
+            <div id="forecast-details-list">
+              <ul class="list">
+                <li class="item">
+                  <span>Temperature:&nbsp;</span>
+                  <span>{{forecast.main.temp}}</span>
+                </li>
+                <li class="item">
+                  <span>Pressure:&nbsp;</span>
+                  <span>{{forecast.main.pressure}}</span>
+                </li>
+                <li class="item">
+                  <span>Humidity:&nbsp;</span>
+                  <span>{{forecast.main.humidity}}<span>
+                </li>
+                <li class="item">
+                  <span>Temp min:&nbsp;</span>
+                  <span>{{forecast.main.temp_min}}</span>
+                </li>
+                <li class="item">
+                  <span>Temp max:&nbsp;</span>
+                  <span>{{forecast.main.temp_max}}</span>
+                </li>
+              </ul>
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            <div>
+              Slide 2
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            <div>
+              Slide 3
+            </div>
+          </ion-slide>
+
+        </ion-slide-box>
+
+      </div>
+    </div>
+
+  </div>
   </ion-content>
 </ion-view>

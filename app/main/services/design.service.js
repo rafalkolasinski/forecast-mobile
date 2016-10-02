@@ -1,70 +1,104 @@
 'use strict';
 angular.module('main')
 .service('DesignSrvc', function () {
-  this.getColoursPalette = function() {
-    var colours = [
-      {
-        hex: '546BDE',
-        rgb: '84, 107, 239',
-        val: 430
-      },
-      {
-        hex: '708CEA',
-        rgb: '112, 140, 234',
-        val: 486
-      },
-      {
-        hex: '9ABAFA',
-        rgb: '154, 186, 250',
-        val: 590
-      },
-      {
-        hex: 'BAD8FF',
-        rgb: '186, 216, 255',
-        val: 657
-      },
-      {
-        hex: 'CFE3FC',
-        rgb: '207, 227, 252',
-        val: 686
-      },
-      {
-        hex: 'E0E6EF',
-        rgb: '224, 230, 239',
-        val: 693
-      },
-      {
-        hex: 'ECE6D8',
-        rgb: '236, 230, 216',
-        val: 382
-      },
-      {
-        hex: 'F8E6B5',
-        rgb: '248, 230, 181',
-        val: 659
-      },
-      {
-        hex: 'FFDE86',
-        rgb: '255, 222, 134',
-        val: 611
-      },
-      {
-        hex: 'F7B65E',
-        rgb: '237, 182, 94',
-        val: 523
-      },
-      {
-        hex: 'DD723C',
-        rgb: '221, 114, 60',
-        val: 395
-      },
-      {
-        hex: 'C83D26',
-        rgb: '200, 61, 38',
-        val: 299
-      }
-    ];
+  var gradient = {
+    primary: {},
+    secondary: {}
+  };
 
+  var colours = [
+    {
+      id: "00",
+      hex: '190B2D',
+      rgb: '11, 45, 45',
+      val: 81
+    },
+    {
+      id: "01",
+      hex: '1B3581',
+      rgb: '27, 53, 129',
+      val: 209
+    },
+    {
+      id: "02",
+      hex: '469FED',
+      rgb: '70, 159, 237',
+      val: 466
+    },
+    {
+      id: "03",
+      hex: '85D0F8',
+      rgb: '133, 208, 248',
+      val: 589
+    },
+    {
+      id: "04",
+      hex: 'C6E2DC',
+      rgb: '198, 226, 220',
+      val: 644
+    },
+    {
+      id: "05",
+      hex: 'FCEACC',
+      rgb: '252, 234, 204',
+      val: 690
+    },
+    {
+      id: "06",
+      hex: 'F69656',
+      rgb: '246, 150, 86',
+      val: 482
+    },
+    {
+      id: "07",
+      hex: 'F45342',
+      rgb: '244, 83, 66',
+      val: 393
+    },
+    {
+      id: "08",
+      hex: 'D11A3F',
+      rgb: '209, 26, 63',
+      val: 298
+    },
+    {
+      id: "09",
+      hex: '770335',
+      rgb: '119, 3, 53',
+      val: 175
+    },
+    {
+      id: "10",
+      hex: '34032E',
+      rgb: '52, 3, 46',
+      val: 101
+    },
+    {
+      id: "11",
+      hex: '180B2D',
+      rgb: '24, 11, 45',
+      val: 80
+    }
+  ];
+
+  this.getColoursPalette = function() {
     return colours;
+  },
+
+  this.setGradientValues = function(top, bottom) {
+    gradient.primary = colours[top];
+    gradient.secondary = colours[bottom];
+  },
+
+  this.getGradientValues = function() {
+    return gradient;
+  }
+
+  this.setThemeCSS = function () {
+    var forecastContainer = angular.element(document.querySelector("#forecast-main"));
+    var forecastDetailsContainer = angular.element(document.querySelector("#forecast-details-list"));
+    forecastContainer.css("background", "linear-gradient(to bottom, #" + gradient.primary.hex + " 0%, #" + gradient.secondary.hex + " 100%)");
+    forecastDetailsContainer.css("background", "#" + gradient.secondary.hex);
+    forecastDetailsContainer.css("border-top", "1px solid #" + gradient.primary.hex);
   }
 });

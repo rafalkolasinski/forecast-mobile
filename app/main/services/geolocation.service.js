@@ -23,7 +23,7 @@ angular.module('main')
 
     //mock for testing purposes wo/ Cordova in browser
     data = {
-      lat: 50.219602, lon: 19.337119
+      lat: 19.91667, lon: 50.083328
     };
     def.resolve(data);
 

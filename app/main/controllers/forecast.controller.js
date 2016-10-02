@@ -7,7 +7,7 @@ angular.module('main')
 
 	// $scope.coordinates = {};
 	//DEV: MOCKED THE COORDS
-	var coordinates = {lat: 50.219602, lon: 19.337119};
+	var coordinates = {lat: 50.083328, lon: 19.91667};
 
 	var local = $localForage;
 
@@ -26,7 +26,8 @@ angular.module('main')
 				.then(function(coords) {
 					ForecastSrvc.getWeatherData(coordinates)
 					.then(function(data) {
-						$scope.forecast = data;
+						$scope.forecast = data.data;
+						console.log($scope.forecast);
 					}, function(err) {
 						console.log(err);
 					});
