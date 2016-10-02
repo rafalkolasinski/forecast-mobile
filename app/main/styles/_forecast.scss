@@ -7,9 +7,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  .forecast-main-basicinfo {
+    color: $frcst-light;
+    .forecast-main-location {
+      font-size: .75em;
+    }
+  }
 }
 
-#forecast-details-list {
+.forecast-details-list {
   ul li {
     border: 0;
     background: none;

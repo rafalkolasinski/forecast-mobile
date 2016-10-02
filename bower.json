@@ -5,12 +5,13 @@
     "angular-animate": "~1.5.0",
     "angular-sanitize": "~1.5.0",
     "angular-ui-router": "~0.2.15",
-    "ngCordova": "~0.1.17-alpha",
-    "localforage": "~1.4.0",
-    "angular-localforage": "^1.2.5"
+    "ngCordova": "~0.1.17-alpha"
   },
   "devDependencies": {
-    "angular-mocks": "~1.5.0"
+    "angular-mocks": "~1.5.0",
+    "localforage": "~1.4.0",
+    "angular-localforage": "^1.2.5",
+    "moment": "^2.14.1"
   },
   "resolutions": {
     "angular": "~1.5.0",
