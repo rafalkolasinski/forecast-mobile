@@ -95,9 +95,23 @@ angular.module('main')
   }
 
   this.setThemeCSS = function () {
+    var forecastHeaderContainer = angular.element(document.querySelectorAll(".forecast-header"));
+    var forecastHeaderButton = angular.element(document.querySelector("#forecast-header-button"));
     var forecastContainer = angular.element(document.querySelector("#forecast-main"));
     var forecastDetailsContainer = angular.element(document.querySelector("#forecast-details"));
+
+    //setting forecast-header colours
+    forecastHeaderContainer.css("background", "#" + gradient.primary.hex);
+    forecastHeaderContainer.css("color", "#" + gradient.secondary.hex);
+    forecastHeaderContainer.css("border-bottom", "1px solid #" + gradient.secondary.hex);
+
+    //setting forecast-header-button colours
+    forecastHeaderButton.css("color", "#" + gradient.secondary.hex);
+
+    //setting forecast-main colours
     forecastContainer.css("background", "linear-gradient(to bottom, #" + gradient.primary.hex + " 0%, #" + gradient.secondary.hex + " 100%)");
+
+    //setting forecast-details colours
     forecastDetailsContainer.css("background", "#" + gradient.secondary.hex);
     forecastDetailsContainer.css("border-top", "1px solid #" + gradient.primary.hex);
   }

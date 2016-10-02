@@ -15,7 +15,7 @@ angular.module('forecastMobile', [
     });
   }])
 
-  .run(function ($rootScope, $ionicPlatform, $ionicPopup, $localForage, DesignSrvc) {
+  .run(function ($rootScope, $ionicPlatform, $ionicPopup, $ionicLoading, $localForage, DesignSrvc) {
     var local = $localForage;
 
     $ionicPlatform.ready(function () {
@@ -84,6 +84,16 @@ angular.module('forecastMobile', [
         }
         DesignSrvc.setGradientValues(primaryIndex, secondaryIndex);
       }
+    };
+
+    $rootScope.showLoader = function() {
+      $ionicLoading.show({
+        template: 'Getting data...'
+      }).then(function(){});
+    }
+
+    $rootScope.hideLoader = function(){
+      $ionicLoading.hide().then(function(){});
     };
 
     /*

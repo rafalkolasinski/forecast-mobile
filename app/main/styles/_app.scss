@@ -2,6 +2,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.forecast-header {
+  color: $frcst-light;
+}
+
 .wrapper-full {
 	height: 100vh;
 	.wrapper-half {

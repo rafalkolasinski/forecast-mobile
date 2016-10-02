@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('ForecastCtrl', function ($scope, $q, $localForage, ForecastSrvc, GeolocationSrvc) {
+.controller('ForecastCtrl', function ($rootScope, $scope, $q, $localForage, ForecastSrvc, GeolocationSrvc) {
 	$scope.connected = false;
 	$scope.forecast = {};
 	var def = $q.defer();
@@ -16,6 +16,8 @@ angular.module('main')
 	}
 
 	$scope.checkConnection = function() {
+	  $rootScope.showLoader();
+
 		local.getItem('connected')
 		.then(function(data){
 			$scope.connected = data;
@@ -27,11 +29,14 @@ angular.module('main')
 					ForecastSrvc.getWeatherData(coordinates)
 					.then(function(data) {
 						$scope.forecast = data.data;
+            $rootScope.hideLoader();
 						console.log($scope.forecast);
 					}, function(err) {
+            $rootScope.hideLoader();
 						console.log(err);
 					});
 				}, function(err) {
+          $rootScope.hideLoader();
 					console.log(err);
 				});
 			}
@@ -44,6 +49,7 @@ angular.module('main')
 		.then(function(data) {
 			$scope.forecast = data;
 		}, function(err) {
+      $rootScope.hideLoader();
 			console.log('Didn\'t get any weather data from service.');
 		})
 	}
