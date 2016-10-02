@@ -20,6 +20,6 @@ $ionicons-font-path: "../assets/fonts" !default;
 
 // Include all of Ionic
 @import "../../bower_components/ionic/scss/ionic";
-@import "./app.scss";
-@import "./forecast.scss";
-
+@import "./_variables.scss";
+@import "./_app.scss";
+@import "./_forecast.scss";

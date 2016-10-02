@@ -77,7 +77,7 @@ angular.module('forecastMobile', [
           $rootScope.time.subtract(1, "hours");
         }
         primaryIndex = Math.floor(parseInt($rootScope.time.format("HH"))/2);
-        if(primaryIndex == 12) {
+        if(primaryIndex === 12) {
           secondaryIndex = 0;
         } else {
           secondaryIndex = primaryIndex+1;

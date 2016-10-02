@@ -15,11 +15,13 @@
       <div class="forecast-main-icon">
         icon
       </div>
-      <div>
-        <span>{{forecast.name}}, {{forecast.sys.country}}</span>
-      </div>
-      <div>
-        {{forecast.coord.lat}},{{forecast.coord.lon}}
+      <div class="forecast-main-basicinfo">
+        <div class="forecast-main-location">
+          <span>{{forecast.name | uppercase}}, {{forecast.sys.country | uppercase}}</span>
+        </div>
+        <div class="forecast-main-coords">
+          <span>{{forecast.coord.lat}},{{forecast.coord.lon}}</span>
+        </div>
       </div>
     </div>
 
@@ -28,7 +30,7 @@
         <ion-slide-box on-slide-changed="slideChanged(index)">
 
           <ion-slide>
-            <div id="forecast-details-list">
+            <div class="forecast-details-list">
               <ul class="list">
                 <li class="item">
                   <span>Temperature:&nbsp;</span>
@@ -40,7 +42,7 @@
                 </li>
                 <li class="item">
                   <span>Humidity:&nbsp;</span>
-                  <span>{{forecast.main.humidity}}<span>
+                  <span>{{forecast.main.humidity}}</span>
                 </li>
                 <li class="item">
                   <span>Temp min:&nbsp;</span>
@@ -55,13 +57,13 @@
           </ion-slide>
 
           <ion-slide>
-            <div>
+            <div class="forecast-details-list">
               Slide 2
             </div>
           </ion-slide>
 
           <ion-slide>
-            <div>
+            <div class="forecast-details-list">
               Slide 3
             </div>
           </ion-slide>

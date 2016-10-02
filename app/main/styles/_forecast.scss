@@ -10,13 +10,18 @@
   .forecast-main-basicinfo {
     color: $frcst-light;
     .forecast-main-location {
-      font-size: .75em;
+      font-size: 1.5em;
+      margin: 1em;
+    }
+    .forecast-main-coords {
+      text-align: center;
     }
   }
 }
 
 .forecast-details-list {
   ul li {
+    color: $frcst-light;
     border: 0;
     background: none;
   }

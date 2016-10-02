@@ -96,7 +96,7 @@ angular.module('main')
 
   this.setThemeCSS = function () {
     var forecastContainer = angular.element(document.querySelector("#forecast-main"));
-    var forecastDetailsContainer = angular.element(document.querySelector("#forecast-details-list"));
+    var forecastDetailsContainer = angular.element(document.querySelector("#forecast-details"));
     forecastContainer.css("background", "linear-gradient(to bottom, #" + gradient.primary.hex + " 0%, #" + gradient.secondary.hex + " 100%)");
     forecastDetailsContainer.css("background", "#" + gradient.secondary.hex);
     forecastDetailsContainer.css("border-top", "1px solid #" + gradient.primary.hex);
